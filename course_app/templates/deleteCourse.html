@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Course?</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Are You Sure You Want to Delete This Course?</h1>
+    <div id="course_wrapper">
+        <h3>Name:</h3>
+        <p>{{sel_course.name}}</p>
+        <h3>Description:</h3>
+        <p>{{sel_course.desc.content}}</p>
+    </div>
+    <div id="yesOrNo_btn">
+        <form action="/">
+            {% csrf_token %}
+            <input type="submit" value="No">
+        </form>
+        <form action="/courses/destroy/{{sel_course.id}}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Yes I want to delete this">
+        </form>
+    </div>
+</body>
+</html>

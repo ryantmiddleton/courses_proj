@@ -1,0 +1,56 @@
+* {
+    margin:0px;
+    padding:0px;
+    /* border:1px dotted red; */
+}
+
+#course_wrapper, #all_wrapper{
+    width:350px;
+    margin-top:20px;
+    margin-left:35%;
+}
+
+#name_txt {
+    width:320px;
+}
+
+#desc_cont{
+    margin-top:20px;
+}
+#desc_txt {
+    vertical-align: top;
+    width:320px;
+    height:70px;
+}
+
+#all_wrapper a{
+    margin-top:100px;
+}
+
+#all_table {
+    border:1px solid black;
+}
+#all_table tr:nth-child(odd){ 
+    background: #adcaf1;
+}
+#all_table tr:nth-child(even){
+    background: #dce9fa;
+}
+
+h3 {
+     margin-top:15px;
+ }
+h1{
+    text-align:center;
+}
+ #comment_txt {
+    width:320px;
+    height:70px;
+ }
+ #yesOrNo_btn {
+     margin-top:15px;
+     margin-left:35%;
+ }
+ #yesOrNo_btn *{
+    display:inline-block;
+ }

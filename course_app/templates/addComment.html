@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Course</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div id="course_wrapper">
+        {% if messages %}
+        <ul class="error_messages">
+            {% for msg in messages %}
+                <li {% if msg.tags %} class="{{msg.tags}}"
+                    {% endif %}>{{ msg }}</li>
+                </li>
+            {% endfor%}
+        {% endif %}
+        </ul>
+        <h3>Name:</h3>
+        <p>{{sel_course.name}}
+        <h3>Description:</h3>
+        <p>{{sel_course.desc.content}}</p>
+        <form action="/courses/comment/{{sel_course.id}}" method="post">
+        {% csrf_token %}
+            <div id="comment_cont">
+                <h3>Add Comment:</h3>
+                <textarea id="comment_txt" name="comment_txt"></textarea>
+            </div>
+            <input type="submit" id="submit_btn" value="Add">
+        </form>
+    </div>
+    <div id="all_wrapper">
+        <h1>Comments</h1>
+        <table id="all_table">
+            <tr>
+                <td>ID</td>
+                <td>Comment</td>
+            </tr>
+                {% for comment in sel_course.comments.all %}
+            <tr>
+                <td>{{comment.id}}</td>
+                <td>{{comment.content}}</td>
+            </tr>
+                {% endfor %}
+        </table>
+        <a href="/">Go Back to Courses</a>  
+    </div>
+ 
+</body>
+</html>
