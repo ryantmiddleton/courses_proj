@@ -39,6 +39,7 @@
                 <td>ID</td>
                 <td>Name</td>
                 <td>Description</td>
+                <td>Date Added</td>
                 <td>Actions</td>
             </tr>
                 {% for course in all_courses %}
@@ -46,6 +47,7 @@
                 <td>{{course.id}}</td>
                 <td>{{course.name}}</td>
                 <td>{{course.desc.content}}</td>
+                <td>{{course.created_at}}</td>
                 <td>
                     <a href="/courses/comment/{{course.id}}">Comment</a>
                     <a href="/courses/destroy/{{course.id}}">Remove</a>
